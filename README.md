@@ -1,1 +1,1 @@
-# 365 Days of Machine Learning
+# 365 Days of Machine Learning Operations
