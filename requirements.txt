@@ -1,0 +1,11 @@
+# torch for CPU only
+torch
+torchvision
+torchaudio
+
+# tf
+tensorflow
+keras
+
+# environment
+jupyterlab
