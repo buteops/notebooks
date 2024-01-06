@@ -9,3 +9,4 @@ keras
 
 # environment
 jupyterlab
+ipykernel
