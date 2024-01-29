@@ -1,7 +1,7 @@
 torch
 torchvision
 torchaudio
-tensorflow
+tensorflow-cpu
 keras
 matplotlib
 numpy
@@ -10,9 +10,8 @@ jupyterlab
 ipykernel
 networkx
 librosa
-openvc-python
+opencv-python
 pytest
 onnx
 jax[cpu]
-streamlit
-
+nltk
