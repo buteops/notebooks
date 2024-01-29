@@ -1,12 +1,18 @@
-# torch for CPU only
 torch
 torchvision
 torchaudio
-
-# tf
 tensorflow
 keras
-
-# environment
+matplotlib
+numpy
+seaborn
 jupyterlab
 ipykernel
+networkx
+librosa
+openvc-python
+pytest
+onnx
+jax[cpu]
+streamlit
+
