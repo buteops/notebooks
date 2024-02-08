@@ -1,1 +1,1 @@
-# 365 Days of Machine Learning Operations
+# MLOps Notebooks and Learning Journey
