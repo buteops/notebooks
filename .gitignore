@@ -6,3 +6,4 @@ models/
 .github/
 docs/
 mkdocs.yml
+__pycache__/

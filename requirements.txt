@@ -26,3 +26,6 @@ uvicorn==0.29.0
 streamlit-1.32.2
 mkdocs==1.5.3
 mkdocs-jupyter==0.24.6
+black==24.3.0
+flake8==7.0.0
+isort==5.13.2
