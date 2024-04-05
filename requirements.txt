@@ -24,3 +24,5 @@ fastapi==0.110.0
 Flask==3.0.2
 uvicorn==0.29.0
 streamlit-1.32.2
+mkdocs==1.5.3
+mkdocs-jupyter==0.24.6
