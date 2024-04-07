@@ -1,1 +1,0 @@
-# I hope my workstation already upgraded, so i can run LLM locally 😁
