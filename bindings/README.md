@@ -1,1 +1,1 @@
-# Some Bindings for NN Libraries
+# How Machine Learning are implemented as Bindings
