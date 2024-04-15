@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from __future__ import annotations
 import os
 import glob
 import random
@@ -11,9 +12,9 @@ import keras
 from PIL import Image, ImageDraw
 
 
-BASE_DIR = Path(__file__).resolve().parent
-RPS_DATA = BASE_DIR / '../datasets/rockpaperscissors/'
-RESULTS = BASE_DIR / '../assets/results'
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+RPS_DATA = BASE_DIR / 'datasets/rockpaperscissors/'
+RESULTS = BASE_DIR / 'assets/results'
 SHAPES = (150, 150, 3)
 BATCH_SIZE = 32
 VALIDATION_SPLIT = 0.4
