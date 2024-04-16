@@ -12,3 +12,5 @@ __pycache__/
 .vscode/
 .ipynb_checkpoints
 .DS_Store
+papers/_pdf/
+_logs/
