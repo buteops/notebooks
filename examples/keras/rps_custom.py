@@ -50,7 +50,7 @@ class RockPaperScissors(keras.models.Model):
    def __init__(self, classes):
       super(RockPaperScissors, self).__init__()
       
-      self._conv2d_1 = keras.layers.Conv2D(32, (3,3), activation='relu',input_shape=SHAPES)
+      self._conv2d_1 = keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=SHAPES)
       self._maxpool2d_1 = keras.layers.MaxPooling2D((2, 2))
       self._conv2d_2 = keras.layers.Conv2D(64, (3,3), activation='relu')
       self._maxpool2d_2 = keras.layers.MaxPooling2D((2, 2))
@@ -106,4 +106,4 @@ if __name__ == '__main__':
    pred_labels = ImageDraw.Draw(pil_img)
    pred_labels.text((75,75), f"Class label: {class_label}", fill = (255, 0, 0))
    pil_img.show()
-   pil_img.save(BASE_DIR / "../assets/results/plain_rockpaperscissors.png")
+   pil_img.save(RESULTS / "plain_rockpaperscissors.png")

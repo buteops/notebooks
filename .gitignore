@@ -2,15 +2,12 @@
 venv/
 win-venv/
 .env/
-datasets/
 models/
 .cache/
 .github/
-docs/
-mkdocs.yml
 __pycache__/
 .vscode/
 .ipynb_checkpoints
 .DS_Store
-papers/_pdf/
 _logs/
+datasets/

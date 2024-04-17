@@ -1,0 +1,44 @@
+site_name: My Docs
+site_description: you interest to mlops? let's train together 👊
+
+repo_url: https://github.com/pandohansamuel19/MLOps-Notebooks/
+repo_name: pandohansamuel19/MLOps-Notebooks
+
+theme:
+  name: material
+  # logo: assets/ztm-logo-and-pytorch-logo.png
+  # favicon: assets/ztm-logo-and-pytorch-logo.png
+  features:
+    - navigation.instant
+    - navigation.top
+  palette:
+    primary: black
+
+markdown_extensions:
+  - meta
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+ - mkdocs-jupyter:
+    include_source: True
+ - search
+ - social
+
+
+nav:
+  - Home: 'index.md'
+  - 00. Linear Algebra - GramSchmidtProcess: 'math/00_Linear_Algebra_GramSchmidtProcess.ipynb'
+  - 01. Multivariate Calculus - The+Sandpit: 'math/01_Multivariate_Calculus_The+Sandpit.ipynb'
+  - 02. PCA - Demonstrations of PCA: '02_PCA_Demonstrations_of_PCA.ipynb'
+  - 03. plain-rockpaperscissors: '03_rockpaperscissors.ipynb'
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/pandohansamuel19/
+    - icon: fontawesome/brands/github
+      link: https://github.com/pandohansamuel19/MLOps-Notebooks
