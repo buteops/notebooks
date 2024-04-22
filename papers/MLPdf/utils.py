@@ -3,6 +3,7 @@
 from __future__ import annotations
 import os, sys, csv, urllib.request, shutil, tarfile, zipfile, logging
 from pathlib import Path
+sys.path.append(Path.cwd().as_posix())
 from datetime import datetime
 from typing import TextIO, Dict, List
 from dataclasses import dataclass
