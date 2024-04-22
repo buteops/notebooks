@@ -1,1 +1,0 @@
-# How to extract control rules from data using Fuzzy logic
