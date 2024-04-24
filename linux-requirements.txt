@@ -1,6 +1,8 @@
-torch==2.2.2+cpu
-torchaudio==2.2.2+cpu
-torchvision==0.17.2+cpu
+# for torch you can download: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# torch==2.2.2+cpu
+# torchaudio==2.2.2+cpu
+# torchvision==0.17.2+cpu
+
 tensorflow-cpu==2.16.1
 keras==3.1.1
 matplotlib==3.8.3
@@ -8,6 +10,7 @@ numpy==1.26.3
 pandas==2.2.1
 seaborn==0.13.2
 jupyterlab==4.1.5
+notebook
 ipykernel
 networkx==3.2.1
 librosa==0.10.1
@@ -29,3 +32,4 @@ mkdocs-jupyter==0.24.6
 black==24.3.0
 flake8==7.0.0
 isort==5.13.2
+gymnasium==0.29.1
