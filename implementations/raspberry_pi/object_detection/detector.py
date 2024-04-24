@@ -14,8 +14,8 @@
 
 from tflite_runtime.interpreter import Interpreter
 
-from utilizers.object_visualization_utils import *
-from utilizers.object_utils import *
+from utilizers.utils_visual import *
+from utilizers.utils_object import *
 
 
 class ObjectDetectorLite:

@@ -1,1 +1,0 @@
-# I think i don't deserve yet for Generative AI. But will up something 😎
