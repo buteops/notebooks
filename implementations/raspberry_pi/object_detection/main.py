@@ -20,8 +20,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
 
-from utilizers.object_visualization_utils import draw_bounding_boxes_on_image_array
-from utilizers.object_utils import load_image
+from utilizers.utils_visual import draw_bounding_boxes_on_image_array
+from utilizers.utils_object import load_image
 from detector import ObjectDetectorLite
 
 def parse_args():
