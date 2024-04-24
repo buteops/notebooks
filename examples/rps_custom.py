@@ -1,27 +1,25 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-import os
-import glob
-import random
+import os, sys, glob, random
+from pathlib import Path
+sys.path.append('/home/adalgiso/personal/mlopsency/')
 import numpy as np
 from typing import List
-from pathlib import Path
+from datetime import datetime
 
 import keras
 from PIL import Image, ImageDraw
+from utilizers.utils_data import rps_download
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-RPS_DATA = BASE_DIR / 'datasets/rockpaperscissors/'
-RESULTS = BASE_DIR / 'assets/results'
 SHAPES = (150, 150, 3)
 BATCH_SIZE = 32
 VALIDATION_SPLIT = 0.4
 
-def data_generator(subset: str):
+def data_generator(dpath: Path, subset: str):
    return keras.utils.image_dataset_from_directory(
-      directory = RPS_DATA,
+      directory = dpath,
       labels='inferred',
       label_mode='categorical',
       color_mode='rgb',
@@ -32,19 +30,19 @@ def data_generator(subset: str):
       subset=subset,
    )
    
-def get_random_image(class_names: List):
+def get_random_image(dpath: Path, class_names: List):
   random_subdir = random.choice(class_names)
-  images = glob.glob(os.path.join(RPS_DATA, random_subdir, '*.png'))
+  images = glob.glob(os.path.join(dpath, random_subdir, '*.png'))
   selected_image_paths = random.choice(images)
   return selected_image_paths
 
 
-class ValidationAccuracyCallback(keras.callbacks.Callback):
+class RPSCallback(keras.callbacks.Callback):
    def on_epoch_end(self, epoch, logs={}):
-      if logs.get('val_accuracy') is not None and logs.get('val_accuracy') > 0.95:
+      if logs.get('accuracy') is not None and logs.get('accuracy') > 0.95:
          print("\nReached more 95% validation accuracy so cancelling training!")
          self.model.stop_training = True
-
+         
 
 class RockPaperScissors(keras.models.Model):
    def __init__(self, classes):
@@ -77,8 +75,11 @@ class RockPaperScissors(keras.models.Model):
 
 if __name__ == '__main__':
    
-   train_generator = data_generator('training')
-   validation_generator = data_generator('validation')
+   RESULTS = 'assets/results'
+   RPS_DATA = 'datasets/rps/'
+   if not os.path.isdir(RPS_DATA): rps_download()
+   train_generator = data_generator(RPS_DATA, 'training')
+   validation_generator = data_generator(RPS_DATA, 'validation')
    class_name = train_generator.class_names
    
    rps_model = RockPaperScissors(classes = len(class_name))
@@ -87,7 +88,7 @@ if __name__ == '__main__':
       train_generator, 
       epochs = 10, 
       validation_data = validation_generator,
-      callbacks=[ValidationAccuracyCallback()]
+      callbacks=[RPSCallback()]
    )
    
    img = get_random_image(class_name)
