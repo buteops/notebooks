@@ -1,7 +1,7 @@
 from __future__ import annotations
 import unittest
 import keras, numpy as np
-from examples.keras.rps_custom import (
+from examples.rps_custom import (
    RockPaperScissors, ValidationAccuracyCallback, data_generator, train_generator, validation_generator, get_random_image, BATCH_SIZE
 )
 
