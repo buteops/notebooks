@@ -84,14 +84,9 @@ if __name__ == '__main__':
    
    rps_model = RockPaperScissors(classes = len(class_name))
    rps_model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
-   rps_model.fit(
-      train_generator, 
-      epochs = 10, 
-      validation_data = validation_generator,
-      callbacks=[RPSCallback()]
-   )
+   rps_model.fit(train_generator, epochs = 10, validation_data = validation_generator, callbacks=[RPSCallback()])
    
-   img = get_random_image(class_name)
+   img = get_random_image(RPS_DATA, class_name)
    pred_img = keras.preprocessing.image.load_img(img, target_size=(150,150))
    x = keras.preprocessing.image.img_to_array(pred_img)
    x = np.expand_dims(x, axis=0)
@@ -107,4 +102,4 @@ if __name__ == '__main__':
    pred_labels = ImageDraw.Draw(pil_img)
    pred_labels.text((75,75), f"Class label: {class_label}", fill = (255, 0, 0))
    pil_img.show()
-   pil_img.save(RESULTS / "plain_rockpaperscissors.png")
+   pil_img.save("../assets/results/plain_rockpaperscissors.png")

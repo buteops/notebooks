@@ -12,15 +12,15 @@ from geopy.exc import GeocoderUnavailable
 import folium
 
 
-_DATASET_ENDPOINT = Path(os.getcwd()).resolve().parent
+_DATASET_ENDPOINT = Path(os.getcwd()).resolve()
 REGION = ["Sumatera", "Jawa", "Kalimantan", "Sulawesi", "Nusa Tenggara", "Maluku", "Papua"]
 
 
-def indonesia_geolocation(fname: str  = None) -> None:
-   frame = defaultdict(list,{ k:[] for k in ('University', 'Location', 'Latitude','Longitude') })
-   dt = pd.read_csv(_DATASET_ENDPOINT / 'datasets/indonesia_uni.csv')
+def indonesia_geolocation(dpath: str, fname: str) -> None:
+   frame = defaultdict(list,{ k:[] for k in ('Istance', 'Location', 'Latitude','Longitude') })
+   dt = pd.read_csv(_DATASET_ENDPOINT / f'datasets/{dpath}.csv')
 
-   for value in dt['University']:
+   for value in dt['Instance']:
       with Nominatim(user_agent="indonesia_geolocator") as geolocator:
          try:
             location = geolocator.geocode(f"{value}")
@@ -59,9 +59,9 @@ def find_island(location):
             return region
     return None
 
-def map_helper(fname: str) -> None:
+def map_helper(dpath: str) -> None:
 
-   dt = pd.read_csv(f'{fname}.csv')
+   dt = pd.read_csv(f'{dpath}.csv')
    dt['Island'] = dt['Location'].apply(find_island)
    maps = folium.Map(location=[-2.5489, 118.0149], zoom_start=5)
 

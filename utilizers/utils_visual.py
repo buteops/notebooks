@@ -3,11 +3,7 @@
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-def draw_bounding_boxes_on_image_array(image,
-                                       boxes,
-                                       color='red',
-                                       thickness=4,
-                                       display_str_list=()):
+def draw_bounding_boxes_on_image_array(image, boxes, color='red', thickness=4, display_str_list=()):
   """Draws bounding boxes on image (numpy array).
   Args:
     image: a numpy array object.
@@ -20,16 +16,11 @@ def draw_bounding_boxes_on_image_array(image,
     ValueError: if boxes is not a [N, 4] array
   """
   image_pil = Image.fromarray(image)
-  draw_bounding_boxes_on_image(image_pil, boxes, color, thickness,
-                               display_str_list)
+  draw_bounding_boxes_on_image(image_pil, boxes, color, thickness, display_str_list)
   np.copyto(image, np.array(image_pil))
   
 
-def draw_bounding_boxes_on_image(image,
-                                 boxes,
-                                 color='red',
-                                 thickness=4,
-                                 display_str_list=()):
+def draw_bounding_boxes_on_image(image, boxes, color='red', thickness=4, display_str_list=()):
   """Draws bounding boxes on image.
   Args:
     image: a PIL.Image object.
@@ -48,18 +39,9 @@ def draw_bounding_boxes_on_image(image,
   if len(boxes_shape) != 2 or boxes_shape[1] != 4:
     raise ValueError('Input must be of size [N, 4]')
   for i in range(boxes_shape[0]):
-    draw_bounding_box_on_image(image, boxes[i, 0], boxes[i, 1], boxes[i, 2],
-                               boxes[i, 3], color, thickness, display_str_list[i])
+    draw_bounding_box_on_image(image, boxes[i, 0], boxes[i, 1], boxes[i, 2], boxes[i, 3], color, thickness, display_str_list[i])
         
-def draw_bounding_box_on_image(image,
-                               ymin,
-                               xmin,
-                               ymax,
-                               xmax,
-                               color='red',
-                               thickness=4,
-                               display_str=None,
-                               use_normalized_coordinates=True):
+def draw_bounding_box_on_image(image, ymin, xmin, ymax, xmax, color='red', thickness=4, display_str=None, use_normalized_coordinates=True):
   """Adds a bounding box to an image.
   Bounding box coordinates can be specified in either absolute (pixel) or
   normalized coordinates by setting the use_normalized_coordinates argument.
@@ -79,8 +61,7 @@ def draw_bounding_box_on_image(image,
   draw = ImageDraw.Draw(image)
   im_width, im_height = image.size
   if use_normalized_coordinates:
-    (left, right, top, bottom) = (xmin * im_width, xmax * im_width,
-                                  ymin * im_height, ymax * im_height)
+    (left, right, top, bottom) = (xmin * im_width, xmax * im_width, ymin * im_height, ymax * im_height)
   else:
     (left, right, top, bottom) = (xmin, xmax, ymin, ymax)
   draw.line([(left, top), (left, bottom), (right, bottom),
@@ -99,13 +80,6 @@ def draw_bounding_box_on_image(image,
     
   text_width, text_height = font.getsize(display_str)
   margin = np.ceil(0.05 * text_height)
-  draw.rectangle(
-      [(left, text_bottom - text_height - 2 * margin), (left + text_width,
-                                                        text_bottom)],
-      fill=color)
+  draw.rectangle([(left, text_bottom - text_height - 2 * margin), (left + text_width, text_bottom)], fill=color)
 
-  draw.text(
-      (left + margin, text_bottom - text_height - margin),
-      display_str,
-      fill='black',
-      font=font)
+  draw.text((left + margin, text_bottom - text_height - margin), display_str, fill='black', font=font)

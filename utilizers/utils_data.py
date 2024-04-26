@@ -26,6 +26,11 @@ class DATASETS:
       'test_01': 'https://cs.nyu.edu/~ylclab/data/norb-v1.0/norb-5x01235x9x18x6x2x108x108-testing-01-dat.mat.gz',
       'test_02': 'https://cs.nyu.edu/~ylclab/data/norb-v1.0/norb-5x01235x9x18x6x2x108x108-testing-02-dat.mat.gz',
    }
+   
+   Horses_Humans: Dict = {
+      'train_images': 'https://storage.googleapis.com/learning-datasets/horse-or-human.zip',
+      'val_images': 'https://storage.googleapis.com/learning-datasets/validation-horse-or-human.zip'
+   }
 
 
 def rps_download():
