@@ -33,3 +33,5 @@ black==24.3.0
 flake8==7.0.0
 isort==5.13.2
 gymnasium==0.29.1
+folium==0.16.0
+geopy==2.4.1
