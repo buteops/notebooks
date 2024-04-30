@@ -1,1 +1,0 @@
-# MLOps Implementations for Desktop Apps
