@@ -11,4 +11,3 @@ __pycache__/
 .DS_Store
 _logs/
 datasets/
-papers/_pdf/
