@@ -1,8 +1,7 @@
-import os, urllib.request, zipfile
+import os, sys, urllib.request, zipfile
+sys.path.append("/home/adalgiso/personal/mlopsency/")
 from pathlib import Path
 from typing import Dict
-
-_DATASET_ENDPOINT = Path(__file__).resolve().parent.parent / 'datasets/'
 
 class DATASETS:
    MNIST: Dict = {
@@ -36,16 +35,20 @@ class DATASETS:
 def rps_download():
    print("Download RPS Dataset, Hold a sec.....")
    data_url = 'https://github.com/dicodingacademy/assets/releases/download/release-rps/rps.zip'
-   urllib.request.urlretrieve(data_url, _DATASET_ENDPOINT / 'rps.zip')
+   urllib.request.urlretrieve(data_url, 'rps.zip')
    local_file = 'rps.zip'
-   zip_ref = zipfile.ZipFile(_DATASET_ENDPOINT / local_file, 'r')
-   zip_ref.extractall(_DATASET_ENDPOINT)
+   zip_ref = zipfile.ZipFile(local_file, 'r')
+   zip_ref.extractall()
    zip_ref.close()
-   os.remove(_DATASET_ENDPOINT / local_file)
+   os.remove(local_file)
    print("Download RPS Dataset completed!!")
    
 def mnist_download():
-   pass
+   return os.getcwd()
 
 def norb_download():
    pass
+
+
+if __name__ == '__main__':
+    print(mnist_download())
