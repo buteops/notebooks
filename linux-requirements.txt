@@ -15,7 +15,6 @@ ipykernel
 networkx==3.2.1
 librosa==0.10.1
 opencv-python==4.9.0.80
-pytest==8.1.1
 onnx==1.16.0
 jax[cpu]
 nltk==3.8.1
@@ -29,9 +28,13 @@ uvicorn==0.29.0
 streamlit==1.32.2
 mkdocs==1.5.3
 mkdocs-jupyter==0.24.6
-black==24.3.0
-flake8==7.0.0
-isort==5.13.2
 gymnasium==0.29.1
 folium==0.16.0
 geopy==2.4.1
+isort==5.13.2
+flake8==7.0.0
+ruff==0.4.4
+black==24.3.0
+pytest==8.1.1
+pylint==3.1.0
+mypy==1.10.0
