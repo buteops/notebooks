@@ -2,6 +2,7 @@
 from __future__ import annotations
 import os, sys, logging, math, time, copy, math
 from pathlib import Path
+sys.path.append(Path.cwd().as_posix())
 from dataclasses import dataclass
 from typing import List, Dict
 
@@ -19,14 +20,7 @@ from sklearn.datasets import make_blobs
 import tensorflow as tf
 from keras.activations import sigmoid
 
-from fundamentals.nn.utils_common import dlc
-
-
-_DATASETS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'datasets'
-_ASSETS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'assets'
-_MODELS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'models'
-_TESTS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'tests'
-_UTILIZERS = Path(__file__).resolve().parent.parent.parent / 'utilizers'
+from utils_common import dlc
 
 
 def load_data():

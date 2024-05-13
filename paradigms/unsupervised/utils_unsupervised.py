@@ -3,6 +3,7 @@ from __future__ import annotations
 import os, sys, logging, math, time, re, csv, tabulate, base64, random, IPython, imageio
 import pickle5 as pickle
 from pathlib import Path
+sys.path.append(Path.cwd().as_posix())
 from typing import List, Dict
 from itertools import zip_longest
 from dataclasses import dataclass
@@ -19,14 +20,6 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from keras.models import Model
 import tensorflow as tf
-
-
-# ENDPOINT for Local Workspaces
-_DATASETS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'datasets'
-_ASSETS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'assets'
-_MODELS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'models'
-_TESTS_ENDPOINT = Path(__file__).resolve().parent.parent.parent / 'tests'
-_UTILIZERS = Path(__file__).resolve().parent.parent.parent / 'utilizers'
 
 
 SEED = 0              # seed for pseudo-random number generator

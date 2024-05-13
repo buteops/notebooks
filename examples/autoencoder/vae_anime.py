@@ -11,3 +11,7 @@ import zipfile
 import urllib.request
 import random
 from IPython import display
+
+
+np.random.seed(51)
+

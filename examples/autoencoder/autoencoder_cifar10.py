@@ -14,13 +14,3 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 from keras.models import Sequential
 
-"""
-   Keywords:
-   - False     - await     - elif      - if        - or        - with
-   - None      - in        - else      - import    - pass      - match
-   - True      - break     - except    - in        - raise     - case
-   - and       - class     - finally   - is        - return    - *args
-   - as        - continue  - for       - lambda    - yield     - **kwargs
-   - assert    - def       - from      - nonlocal  - try       - type
-   - async     - del       - global    - not       - while
-"""
