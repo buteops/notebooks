@@ -5,6 +5,7 @@ import keras
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""First Autoencoder"""
 
 def generate_data(m):
   '''plots m random points on a 3D plane'''

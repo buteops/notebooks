@@ -1,0 +1,1 @@
+"""Denoising with a CNN Autoencoder"""
