@@ -1,5 +1,30 @@
+[project]
+name = "mlopsency"
+description = "you interest to mlops? here's your encyclopedic repo 👊"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+  { name = "pandohansamuel19@gmail.com", email = "gultomterampil19@gmail.com" },
+]
+keywords = ["pytorch", "tensorflow"]
+dependencies = [
+  # Hugging Face integrations
+  "datasets",
+
+  # Tokenization
+  "blobfile",
+  "sentencepiece",
+  "tiktoken",
+
+  # Miscellaneous
+  "tomli>=1.1.0"
+]
+dynamic = ["version"]
+
+
 [tool.black]
-line-length = 100
+line-length = 120
 target-version = ["py38", "py39", "py310", "py311"]
 include = '\.pyi?$'
 exclude = '''
@@ -15,6 +40,3 @@ exclude = '''
   | dist
 )/
 '''
-# Specify the desired indentation level
-use-tabs = true
-tab-width = 2
