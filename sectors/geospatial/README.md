@@ -1,1 +1,0 @@
-# Machine Learning Operations for Geospatial Intelligence
