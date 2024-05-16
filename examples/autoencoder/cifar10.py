@@ -47,4 +47,4 @@ def build_model():
   ### START CODE HERE ###
   model.fit(train, steps_per_epoch=train_steps, validation_data=test, validation_steps=val_steps, epochs=50)
   model.summary()
-  result = model.evaluate(test, steps=10)
+  return model.evaluate(test, steps=10)
