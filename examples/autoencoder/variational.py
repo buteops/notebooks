@@ -1,1 +1,0 @@
-"""Convolutional Variational Autoencoder"""
