@@ -18,69 +18,13 @@ The Hopes that can be implement for this repo:
 - Frameworks?? we will see ;)
 
 ## The Progressive Dirs
-1. `bindings`: Well, we can learn why distinguished nn framework needs to be implemented for the other OOP paradigms programming languages
-2. `implementations`: Programmatic ways to served and used the ml/ai resources on types of applications. Here updated subdirs for now:
-    - `android`
-    - `backend`
-    - `desktop`
-    - `games`
-    - `ios`
-    - `raspberry pi`
-3. `docs`: Some interesting parts of resources will be surf on internet
-4. `examples`: Not just learn the basics, but completely true that must used to real use-case examples. Here updated subdirs for now:
-    - `autoencoder`
-    - `convolutional`
-    - `computer vision`
-    - `ensemble`
-    - `generative`
-    - `graph`
-    - `multi modal`
-    - `natural language processing`
-    - `pretrained`
-    - `reccurent`
-    - `tensorflow`
-    - `pytorch`
-5. `operations`: swe + devops ways for shipping the ml/ai applications/solutions. Here some subdirs for now:
-    - `anomaly`
-    - `automations`
-    - `benchmarking`
-    - `deployments`
-    - `distributions`
-    - `engineering`
-    - `managements`
-    - `monitoring`
-    - `optimizations`
-    - `orchestrations`
-    - `pipelines`
-    - `robustness`
-    - `serializations`
-    - `streaming`
-    - `synthesis`
-    - `versioning`
-6. `paradigms`: The core of ml/ai. if you don't understand paradigms, maybe kind of like 'zombie' or 'stupid'. Here some subdirs for now:
-    - `analytics`
-    - `automl`
-    - `ensemble`
-    - `federated`
-    - `maths`
-    - `mining`
-    - `nn`
-    - `reinforcement`
-    - `semi`
-    - `supervised`
-    - `unsupervised`
-7. `sectors`: Some sectors needs to implementing Machine Learning for their business. Here updated subdirs for now:
-    - `bioinformatics`
-    - `finance`
-    - `geospatial`
-    - `healthcare`
-    - `quantum`
-    - `security`
-    - `system`
-    - `xai`
-
-8. `tests`: since we want implementing swe + devops structurals, we need Test-Driven Development implementations for some sources so it'll clean and maintainable
-9. `utilizers`: some clean code that repeatable used on other dirs.
+1. `binding`: Well, we can learn why distinguished nn framework needs to be implemented for the other OOP paradigms programming languages.
+2. `device`: Programmatic ways to served and used the ml/ai resources on types of applications.
+3. `docs`: Some interesting parts of resources will be surf on internet.
+4. `examples`: Not just learn the basics, but completely true that must used to real use-case examples.
+5. `extra`: some research implementations.
+6. `paradigm`: The core of ml/ai. if you don't understand paradigms, maybe kind of like 'zombie' or 'stupid'.
+7. `test`: we need TDD implementations for some sources so it'll clean and maintainable.
 
 ## Contributions
 For now, this repo only dedicated for myself. So, hopefully we can work together in more futures.
