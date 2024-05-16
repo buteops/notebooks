@@ -1,1 +1,0 @@
-# How the Operations works for MLOps
