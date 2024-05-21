@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# MNIST Autoencoder
-
 from __future__ import annotations
 import sys
 import functools
