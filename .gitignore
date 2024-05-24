@@ -1,6 +1,5 @@
 .idea/
 venv/
-win-venv/
 .env/
 models/
 .cache/
@@ -12,3 +11,12 @@ __pycache__/
 _logs/
 datasets/
 .ruff_cache/
+mlopsency/deploy/
+mlopsency/operate/
+mlopsency/runtime/
+mlopsency/target/
+mlopsency/utils/
+mlopsency/core.py
+mlopsency/functional.py
+
+*.out
