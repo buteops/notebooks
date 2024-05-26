@@ -5,7 +5,6 @@ models/
 .cache/
 .github/
 __pycache__/
-.vscode/
 .ipynb_checkpoints
 .DS_Store
 _logs/
