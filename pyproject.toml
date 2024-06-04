@@ -5,7 +5,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 authors = [
-  { name = "pandohansamuel19@gmail.com", email = "gultomterampil19@gmail.com" },
+  { name = "Samuel Pandohan Terampil Gultom", email = "gultomterampil19@gmail.com" },
 ]
 keywords = ["pytorch", "tensorflow"]
 dependencies = [

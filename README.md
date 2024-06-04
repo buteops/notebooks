@@ -26,12 +26,11 @@
 - Library?? we will see ;)
 
 ## The Progressive Dirs
-1. `core`: The core of ml/ai. some RnD to implementing this current project for dummies, maybe kind of like 'zombie' or 'stupid'.
-2. `docs`: Some interesting parts of resources will be surf on internet.
-3. `examples`: Not just learn the basics, but completely true that must used to real use-case examples.
-4. `extra`: some very useful, some not really.
-5. `mlopsency`: MLOps Frontend for Dummies. The hopes of future library
-6. `test`: we need TDD implementations for some sources so it'll clean and maintainable.
+1. `docs`: Some interesting parts of resources will be surf on internet.
+2. `examples`: Not just learn the basics, but completely true that must used to real use-case examples.
+3. `extra`: some very useful, some not really.
+4. `mlopsency`: MLOps Frontend for Dummies. The hopes of future library
+5. `test`: we need TDD implementations for some sources so it'll clean and maintainable.
 
 ## Contributions
 For now, this repo only dedicated for myself. So, hopefully we can work together in more futures.

@@ -17,6 +17,6 @@ mlopsency/runtime/
 mlopsency/target/
 mlopsency/utils/
 mlopsency/core.py
-mlopsency/functional.py
+mlopsency/data.py
 
 *.out
