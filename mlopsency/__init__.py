@@ -1,8 +1,6 @@
-from mlopsency.cycle import accelerate, adversarial, auto, ops, orchestra, serialization
-from mlopsency.data import data, management, pipeline, store, synthesis
-from mlopsency.report import autoviz, benchmark, explain, statistic
-from mlopsency.runtime import config, device, engine, loss, nn, optim
-from mlopsency.serve import config, docker, hosting, storage
-from mlopsency.target import api, hub, tiny
+from mlopsency.core import Core
+from mlopsency.data import Data
+from mlopsency.design import Design
+from mlopsency.ops import Ops
 
 __version__ = '1.0.0'
