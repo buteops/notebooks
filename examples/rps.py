@@ -1,38 +1,30 @@
 #!/usr/bin/env python3
-
 from __future__ import annotations
-import os, sys, glob, random, gc
-from pathlib import Path
+import os, sys, glob, random, pathlib, importlib.util as libs
 from typing import List
-
-#  Development Stage
-sys.path.append(Path.cwd().as_posix())
-
-
-import numpy as np
-import keras
+from dataclasses import dataclass
+import keras, numpy as np
+import tensorflow as tf
 from PIL import Image, ImageDraw
-from mlopsency.utils.dataset import rps_download
+
+if not libs.find_spec("mlopsency"): sys.path.append(pathlib.Path.cwd().as_posix())
+from mlopsency.utils.fetch import rps_download
 
 
-SHAPES = (150, 150, 3)
-BATCH_SIZE = 32
-VALIDATION_SPLIT = 0.4
-
-def data_generator(dpath: Path, subset: str):
+def data_generator(dpath: pathlib.Path, subset: str):
   return keras.utils.image_dataset_from_directory(
     directory = dpath,
     labels='inferred',
     label_mode='categorical',
     color_mode='rgb',
-    batch_size=BATCH_SIZE,
-    image_size=SHAPES[:2],
+    batch_size=config.BATCH_SIZE,
+    image_size=config.SHAPES[:2],
     seed=123,
-    validation_split=VALIDATION_SPLIT,
+    validation_split=config.VALIDATION_SPLIT,
     subset=subset,
   )
 
-def get_random_image(dpath: Path, class_names: List):
+def get_random_image(dpath: pathlib.Path, class_names: List):
   random_subdir = random.choice(class_names)
   images = glob.glob(os.path.join(dpath, random_subdir, '*.png'))
   selected_image_paths = random.choice(images)
@@ -46,11 +38,10 @@ class RPSCallback(keras.callbacks.Callback):
       self.model.stop_training = True
 
 
-class RockPaperScissors(keras.models.Model):
-  def __init__(self, classes):
-    super(RockPaperScissors, self).__init__()
-
-    self._conv2d_1 = keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=SHAPES)
+class RPS(keras.models.Model):
+  def __init__(self, classes, shapes):
+    super(RPS, self).__init__()
+    self._conv2d_1 = keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=shapes)
     self._maxpool2d_1 = keras.layers.MaxPooling2D((2, 2))
     self._conv2d_2 = keras.layers.Conv2D(64, (3,3), activation='relu')
     self._maxpool2d_2 = keras.layers.MaxPooling2D((2, 2))
@@ -74,26 +65,33 @@ class RockPaperScissors(keras.models.Model):
     x= self._classifier(x)
     return x
 
-
-if __name__ == '__main__':
-
+@dataclass
+class RPSConfig:
+  SHAPES = (150, 150, 3)
+  BATCH_SIZE = 32
+  VALIDATION_SPLIT = 0.4
   RESULTS = 'assets/results'
   RPS_DATA = 'datasets/rps/'
-  if not os.path.isdir(RPS_DATA): rps_download()
-  train_generator = data_generator(RPS_DATA, 'training')
-  validation_generator = data_generator(RPS_DATA, 'validation')
+
+
+if __name__ == '__main__':
+  tf.config.run_functions_eagerly(False)
+  config = RPSConfig()
+  if not os.path.isdir(config.RPS_DATA): rps_download()
+  train_generator = data_generator(config.RPS_DATA, 'training')
+  validation_generator = data_generator(config.RPS_DATA, 'validation')
   class_name = train_generator.class_names
 
-  rps_model = RockPaperScissors(classes = len(class_name))
+  rps_model = RPS(classes = len(class_name), shapes = config.SHAPES)
   rps_model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
   rps_model.fit(train_generator, epochs = 10, validation_data = validation_generator, callbacks=[RPSCallback()])
 
-  img = get_random_image(RPS_DATA, class_name)
+  img = get_random_image(config.RPS_DATA, class_name)
   pred_img = keras.preprocessing.image.load_img(img, target_size=(150,150))
   x = keras.preprocessing.image.img_to_array(pred_img)
   x = np.expand_dims(x, axis=0)
   images = np.vstack([x])
-  classes = rps_model.predict(images, batch_size=BATCH_SIZE)
+  classes = rps_model.predict(images, batch_size=config.BATCH_SIZE)
   max_index = np.argmax(classes)
   class_label = class_name[max_index]
   print("Class label: " + class_label)
@@ -107,11 +105,11 @@ if __name__ == '__main__':
   print('Restored model, validation_accuracy: {:5.2f}%'.format(100 * val_acc))
 
   print(rps_model.predict(validation_generator).shape)
-  
+  rps_model.save("models/rps.keras")
 
   # Generate Predicted + Labeled Image
-  # pil_img = Image.open(img)
-  # pred_labels = ImageDraw.Draw(pil_img)
-  # pred_labels.text((75,75), f"Class label: {class_label}", fill = (255, 0, 0))
-  # pil_img.show()
-  # pil_img.save("assets/results/plain_rockpaperscissors.png")
+  pil_img = Image.open(img)
+  pred_labels = ImageDraw.Draw(pil_img)
+  pred_labels.text((75,75), f"Class label: {class_label}", fill = (255, 0, 0))
+  pil_img.show()
+  pil_img.save("assets/results/plain_rockpaperscissors.png")
