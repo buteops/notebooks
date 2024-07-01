@@ -15,7 +15,7 @@ def get_requirements(file_path:str)->List[str]:
     requirements=file_obj.readlines()
     requirements=[req.replace("\n","") for req in requirements]
     if HYPEN_E_DOT in requirements:
-      requirements.remove(HYPEN_E_DOT)  
+      requirements.remove(HYPEN_E_DOT)
   return requirements
 
 setup(
@@ -32,10 +32,10 @@ setup(
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.10",
     "Operating System :: OS Independent",
-  ],  
+  ],
   packages = find_packages(),
   install_requires = get_requirements('linux-requirements.txt'),
   extras_require = {
-    "dev": ["pytest>=7.0", "twine>=4.0.2"], 
+    "dev": ["pytest>=7.0", "twine>=4.0.2"],
   }
 )

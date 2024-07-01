@@ -4,19 +4,19 @@ venv/
 .env/
 models/
 .cache/
-.github/
 __pycache__/
 .ipynb_checkpoints
 .DS_Store
 _logs/
 datasets/
 .ruff_cache/
-mlopsency/deploy/
-mlopsency/operate/
+mlopsency/serve/
+mlopsency/cycle/
+mlopsency/pipeline/
+mlopsency/report/
 mlopsency/runtime/
 mlopsency/target/
 mlopsency/utils/
-mlopsency/core.py
-mlopsency/data.py
+mlopsency/README.md
 
 *.out

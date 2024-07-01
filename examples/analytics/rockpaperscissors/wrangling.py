@@ -11,7 +11,7 @@ class Dataset:
     sales = "https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/main/DicodingCollection/sales.csv"
 
 
-class AssessingData():
+class AssessingData:
     def __init__(self, dataset: Dataset):
         self.load_data_csv = pd.read_csv(dataset)
 
