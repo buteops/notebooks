@@ -10,7 +10,7 @@
 
 </h3>
 
-  <img src="assets/T450.png" width="515" height="350" alt="Current Specs.">
+  <img src="__assets__/T450.png" width="515" height="350" alt="Current Specs.">
 
 </div>
 
