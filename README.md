@@ -32,5 +32,10 @@
 4. `mlopsency`: MLOps Frontend for Dummies. The hopes of future library
 5. `test`: we need TDD implementations for some sources so it'll clean and maintainable.
 
+## Target
+* https://docs.aws.amazon.com/prescriptive-guidance/latest/mlops-checklist/mlops-checklist-components.html
+* https://mlops-for-all.github.io/en/docs/introduction/intro
+* https://ml-ops.org/content/mlops-principles
+
 ## Contributions
 For now, this repo only dedicated for myself. So, hopefully we can work together in more futures.

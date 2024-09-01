@@ -1,0 +1,27 @@
+JAX & Its Ecosystems
+====================
+
+- Neural Nets
+  - Flax
+  - Equinox
+- Optimizers & Solvers
+  - Optax
+  - Optimistix
+  - Lineax
+  - Diffrax
+- Miscellaneous tools
+  - Orbax
+  - Chex
+- Probabilistic programming & modelling
+  - Blackjax
+  - Numpyro
+  - PyMC
+  - Distrax
+- Physics & Simulation
+  - JAX MD
+  - Brax
+- LLMs
+  - MaxText
+  - AXLearn
+  - Levanter
+  - EasyLM
